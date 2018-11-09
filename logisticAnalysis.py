@@ -143,6 +143,7 @@ def runMultipleRegression(self, data):
 
 #3. Write the equations for your linear, logistic, and multiple logistic regressions. Hint: Use the equations from the slides from Monday's lecture to work out what a logistic regression equation might look like. 
 #Y = sugar percent
+
 ################################################################################
 # WEDNESDAY WORK 
 ################################################################################
