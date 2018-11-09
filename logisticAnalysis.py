@@ -62,7 +62,7 @@ class LinearAnalysis:
 ################################################################################
 # MONDAY & WEDNESDAY WORK 
 ################################################################################
-#Problem 1
+#PROBLEM 1
 #import regression analysis 
 #import regressionAnalysis
 
@@ -106,8 +106,10 @@ line_analysis.runSimpleAnalysis(dataAD)
 logisticAnalysis = LogisticAnalysis("chocolate")
 logisticAnalysis.runSimpleAnalysis(dataAD)
  
-#Do the two functions find the same optimal variable? They both find the same optimal variable. 
-#Which method best fits this data? The method that best fits the data is the linear analysis which printed out the pricepercent 0.10870630201695808 while the logistic analysis printed out the winpercent 0.04279279279279302. 
+#Do the two functions find the same optimal variable? 
+    #They both find the same optimal variable. 
+#Which method best fits this data? 
+    #The method that best fits the data is the linear analysis which printed out the pricepercent 0.10870630201695808 while the logistic analysis printed out the winpercent 0.04279279279279302. 
 
 
 #PROBLEM 2. Add a function to the LogisticAnalysis object called runMultipleRegression. This function should take in an AnalysisData object as a parameter and should use this object to compute a multiple logistic regression using all of the possible independent variables in your dataset to predict whether or not a candy is chocolate (note, you should not use your dependent variable as an independent variable). Print the variable name and resulting fit. In your testing code, create a new LogisticAnalysis object and use it to run this function on your candy data. Compare the outcomes of this and the simple logistic analysis. Which model best fits the data? Why? 
@@ -140,7 +142,11 @@ def runMultipleRegression(self, data):
         self.bestX = best_var
         print(best_var, best_r2)
 
-#3. Write the equations for your linear, logistic, and multiple logistic regressions. Hint: Use the equations from the slides from Monday's lecture to work out what a logistic regression equation might look like. 
+#Which model best fits the data? Why? 
+    #The model that best fits the data is... 
+    
+    
+#PROBLEM 3. Write the equations for your linear, logistic, and multiple logistic regressions. Hint: Use the equations from the slides from Monday's lecture to work out what a logistic regression equation might look like. 
 #Y = sugar percent
 
 ################################################################################
