@@ -60,7 +60,7 @@ class LinearAnalysis:
         print(best_var, best_r2)
         
 ################################################################################
-# MONDAY WORK 
+# MONDAY & WEDNESDAY WORK 
 ################################################################################
 #Problem 1
 #import regression analysis 
@@ -93,7 +93,6 @@ class LogisticAnalysis:
         
         self.bestX = best_var
         print(best_var, best_r2)
-        
         
 #Last Week
 dataAD = AnalysisData()
@@ -145,18 +144,27 @@ def runMultipleRegression(self, data):
 #Y = sugar percent
 
 ################################################################################
-# WEDNESDAY WORK 
-################################################################################
- #4. Identify the independent variable(s) and its type (e.g., categorical, continuous, or discrete), the dependent variable and its type, and the null hypothesis for each of the following scenarios: 
-
-#(a) What candies contain more sugar, those with caramel or those with chocolate?
-#Independent Variable: Sugar, Caramel, chocolate 
-
-#(b) Are there more split ticket voters in blue states or red states? 
-
-#(c) Do phones with longer battery life sell at a higher or lower rate than other phones?
-
-
-################################################################################
 # FRIDAY WORK 
 ################################################################################
+#4. Identify the independent variable(s) and its type (e.g., categorical, continuous, or discrete), the dependent variable and its type, and the null hypothesis for each of the following scenarios: 
+
+#(a) What candies contain more sugar, those with caramel or those with chocolate?
+    #Independent Variable: Candy 
+    #Type: Categorical 
+    #Dependent Variable: Amount of sugar 
+    #Type: Continuous 
+    #Null Hypothesis: Both types of candies contain the same amount of sugar 
+
+#(b) Are there more split ticket voters in blue states or red states? 
+    #Independent Variable: The state (blue vs.red)
+    #Type: Categorical- not an order to it 
+    #Dependent Variable: Split ticket voters 
+    #Type: Continuous
+    #Null Hypothesis: Both states contain the same amount of split ticket voters
+
+#(c) Do phones with longer battery life sell at a higher or lower rate than other phones?
+    #Independent Variable: Phone 
+    #Type: Categorical 
+    #Dependent Variable: Selling rate 
+    #Type: Continuous 
+    #Null Hypothesis: Phones with the longer battery life sell at the same rate as other phones. 
