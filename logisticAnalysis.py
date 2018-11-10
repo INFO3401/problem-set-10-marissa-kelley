@@ -56,8 +56,10 @@ class LinearAnalysis:
                 if r_score > best_r2:
                     best_r2 = r_score
                     best_var = column
-        self.bestX = best_var
+                    self.bestX = best_var
         print(best_var, best_r2)
+        print('Linear Simple Analysis coefficient: ', regr.coef_)
+        print('Linear Simple Analysis intercept: ', regr.intercept_)
         
 ################################################################################
 # MONDAY & WEDNESDAY WORK 
@@ -91,8 +93,10 @@ class LogisticAnalysis:
             best_r2 = r_score
             best_var = column
         
-        self.bestX = best_var
-        print(best_var, best_r2)
+            self.bestX = best_var
+            print(best_var, best_r2)
+            print('Simple Logistic Analysis coefficient: ', regr.coef_)
+            print('Simple Logistic Analysis intercept: ', regr.intercept_)
         
 #Last Week
 dataAD = AnalysisData()
@@ -114,17 +118,23 @@ logisticAnalysis.runSimpleAnalysis(dataAD)
 
 #PROBLEM 2. Add a function to the LogisticAnalysis object called runMultipleRegression. This function should take in an AnalysisData object as a parameter and should use this object to compute a multiple logistic regression using all of the possible independent variables in your dataset to predict whether or not a candy is chocolate (note, you should not use your dependent variable as an independent variable). Print the variable name and resulting fit. In your testing code, create a new LogisticAnalysis object and use it to run this function on your candy data. Compare the outcomes of this and the simple logistic analysis. Which model best fits the data? Why? 
 
-def runMultipleRegression(self, data): 
+class MultipleLogisticRegression:
+    def __init__(self,targetY_input):
+        self.target_Y= targetY_input
+        self.bestX = ""
+        self.fit = ""
+    
+    def runMultipleRegression(self, data): 
         best_r2 = -1
         best_var = ""
-        
+
         for column in data.variables: #creating a new dataframe each time 
             if column != self.target_Y:
                 #take column and pull all values from it and set it to independent_var
                 independent_var = data.dataset[column].values
                 #reshapes it into a 2D array from a 1D array 
                 independent_var = independent_var.reshape(len(independent_var),1)
-                
+
             regr = LogisticRegression()
             regr.fit(independent_var, data.dataset[self.target_Y])
             pred = regr.predict(independent_var)
@@ -132,22 +142,48 @@ def runMultipleRegression(self, data):
             if r_score > best_r2:
                 best_r2 = r_score
                 best_var = column
-        
+
             self.bestX = best_var
             print(best_var, best_r2)
             if r_score > best_r2:
-            best_r2 = r_score
-            best_var = column
-        
-        self.bestX = best_var
+                best_r2 = r_score
+                best_var = column
+
+                self.bestX = best_var
         print(best_var, best_r2)
+        #print(regr.coef_,regr.intercept_)
+        print('Multiple Regression Analysis coefficients: ', regr.coef_)
+        print('Multiple Regression Analysis intercept: ', regr.intercept_)
+        
+dataAD = AnalysisData()
+dataAD.parseFile("candy-data.csv")
+
+multipleLogisticRegression = MultipleLogisticRegression("chocolate")
+multipleLogisticRegression.runMultipleRegression(dataAD)
 
 #Which model best fits the data? Why? 
-    #The model that best fits the data is... 
+    #The model that best fits the data is linear regression. As the pricepercent was 0.10870630201695808 and the winpercent was 0.04279279279279302. 
     
     
 #PROBLEM 3. Write the equations for your linear, logistic, and multiple logistic regressions. Hint: Use the equations from the slides from Monday's lecture to work out what a logistic regression equation might look like. 
-#Y = sugar percent
+
+#Linear Reression:
+    #y = mx+b
+        # m = 0.00440378
+        # b = 0.25706329166484104
+    #y = 0.00440378x+0.25706329166484104 
+#Simple Logistic Regression:
+    #y = b0 + b1x
+        # b0 = 
+        #b1 = 
+    #y = 
+#Mutliple Logistic Regression: 
+    #y = b0 + b1x1 + b2x2 + … 
+        # b0 = 
+        # b1x1 =
+        # b2x2 = 
+    # y = 
+    #sugar percent
 
 ################################################################################
 # FRIDAY WORK 
