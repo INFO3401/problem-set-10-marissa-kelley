@@ -135,8 +135,8 @@ class MultipleLogisticRegression:
                 #reshapes it into a 2D array from a 1D array 
                 independent_var = independent_var.reshape(len(independent_var),1)
 
-            regr = LogisticRegression()
-            regr.fit(independent_var, data.dataset[self.target_Y])
+            multi_regr = LogisticRegression()
+            multi_regr.fit(independent_var, data.dataset[self.target_Y])
             pred = regr.predict(independent_var)
             r_score = r2_score(data.dataset[self.target_Y],pred)
             if r_score > best_r2:
@@ -152,8 +152,8 @@ class MultipleLogisticRegression:
                 self.bestX = best_var
         print(best_var, best_r2)
         #print(regr.coef_,regr.intercept_)
-        print('Multiple Regression Analysis coefficients: ', regr.coef_)
-        print('Multiple Regression Analysis intercept: ', regr.intercept_)
+        print('Multiple Regression Analysis coefficients: ', multi_regr.coef_)
+        print('Multiple Regression Analysis intercept: ', multi_regr.intercept_)
         
 dataAD = AnalysisData()
 dataAD.parseFile("candy-data.csv")
@@ -168,22 +168,20 @@ multipleLogisticRegression.runMultipleRegression(dataAD)
 #PROBLEM 3. Write the equations for your linear, logistic, and multiple logistic regressions. Hint: Use the equations from the slides from Monday's lecture to work out what a logistic regression equation might look like. 
 
 #Linear Reression:
-    #y = mx+b
-        # m = 0.00440378
-        # b = 0.25706329166484104
-    #y = 0.00440378x+0.25706329166484104 
+    #y =  b0 + b1x
+        # b0 = 0.25706329166484104
+        # b1 = 0.00440378
+    #y = 0.25706329166484104 + 0.00440378
 #Simple Logistic Regression:
-    #y = b0 + b1x
-        # b0 = 
-        #b1 = 
-    #y = 
+    #p = 1/1+e^-(b0+b1x)
+        #b0 = -0.650265328323
+        #b1 = 0.02157451
+    #p = 1/1+e^-(-0.650265328323 + 0.02157451x)
 #Mutliple Logistic Regression: 
-    #y = b0 + b1x1 + b2x2 + … 
-        # b0 = 
-        # b1x1 =
-        # b2x2 = 
-    # y = 
-    #sugar percent
+    # p = 1/1+e^-(b0+b1x+b2x+b3x+....b11x)
+    
+    # p = 1/1+e^-(-1.68260553 + -2.52858047 + -0.19697876 + 0.03940308 -0.16539952 + 0.49783674 + -0.47591613 0.81511886 + -0.59971553 + -0.2581028 + 0.3224988 + 0.05387906)
+
 
 ################################################################################
 # FRIDAY WORK 
@@ -206,7 +204,7 @@ multipleLogisticRegression.runMultipleRegression(dataAD)
 
 #(c) Do phones with longer battery life sell at a higher or lower rate than other phones?
     #Independent Variable: Phone 
-    #Type: Categorical 
+    #Type: Continuous 
     #Dependent Variable: Selling rate 
     #Type: Continuous 
     #Null Hypothesis: Phones with the longer battery life sell at the same rate as other phones. 
